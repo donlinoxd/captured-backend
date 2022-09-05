@@ -1,0 +1,12 @@
+schema: ./src/graphql/schema.graphql
+generates:
+  ./src/types/resolvers.type.ts:
+    config:
+      mappers:
+        User: ../models/user.model#TUser
+        Post: ../models/post.model#TPost
+        Comment: ../models/comment.model#TComment
+      contextType: ../graphql/context#TContext
+    plugins:
+      - typescript
+      - typescript-resolvers
